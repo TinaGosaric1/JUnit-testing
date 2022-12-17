@@ -20,7 +20,7 @@ public class BankAccount {
     // The branch argument is true if the customer is performing the transaction at a branch, with a teller.
     // It's false if the customer is performing the transaction at an ATM.
 
-    public double deposit(double amount, boolean branch){
+    public double deposit(double amount, boolean branch) {
         balance += amount;
         return balance;
     }
@@ -28,7 +28,7 @@ public class BankAccount {
     // The branch argument is true if the customer is performing the transaction at a branch, with a teller.
     // It's false if the customer is performing the transaction at an ATM.
 
-    public double withdraw(double amount, boolean branch){
+    public double withdraw(double amount, boolean branch) {
         if ((amount > 500.00) && !branch) {
             throw new IllegalArgumentException();
         }
@@ -37,11 +37,11 @@ public class BankAccount {
         return balance;
     }
 
-    public double getBalance(){
+    public double getBalance() {
         return balance;
     }
 
-    public boolean isChecking(){
+    public boolean isChecking() {
         return accountType == CHECKING;
     }
 }

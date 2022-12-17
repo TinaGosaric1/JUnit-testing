@@ -8,21 +8,21 @@ public class BankAccountTest {
     private static int count;
 
     @org.junit.BeforeClass
-    public static void beforeClass(){
+    public static void beforeClass() {
         System.out.println("This executes before any test cases. Count: " + count++);
     }
 
     @org.junit.Before
-    public void setup(){
-        account = new BankAccount("Tina","Butterfly",1000.00, BankAccount.CHECKING);
+    public void setup() {
+        account = new BankAccount("Tina", "Butterfly", 1000.00, BankAccount.CHECKING);
         System.out.println("Running a test...");
     }
 
     @org.junit.Test
-    public void deposit() throws Exception{
+    public void deposit() throws Exception {
         double balance = account.deposit(200.00, true);
         // third parameter (delta): as long as the difference between the expected and actual values is within the delta we specify, then the assertion will pass
-        assertEquals(1200.00,balance,0);
+        assertEquals(1200.00, balance, 0);
     }
 
     @org.junit.Test
@@ -33,8 +33,8 @@ public class BankAccountTest {
 
     @org.junit.Test(expected = IllegalArgumentException.class)
     public void withdraw_notBranch() throws Exception {
-        double balance = account.withdraw(600.00, false);
-        assertEquals(400.00, balance, 0);
+        account.withdraw(600.00, false);
+        fail("Should have thrown an IllegalArgumentException");
     }
 
     @org.junit.Test
